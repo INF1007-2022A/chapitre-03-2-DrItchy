@@ -32,29 +32,21 @@ def average(values):
 
 def bills(value):
 	# TODO: Calculez le nombre de billets de 20$, 10$ et 5$ et pièces de 1$ à remettre pour représenter la valeur.
-	while value != 0:
-		if value >= 20:
-			twenties=value//20
-		elif value >= 10:
-			tens=value//10
-		elif value >= 5:
-			fives=value//5
-		elif value >= 1:
-			ones=value//1
-
-	return (twenties, tens, fives, ones);
+	pass
 
 def format_base(value, base, digit_letters):
 	# Formater un nombre dans une base donné en utilisant les lettres fournies pour les chiffres<
 	# `digits_letters[0]` Nous donne la lettre pour le chiffre 0, ainsi de suite.
 	result = ""
 	abs_value = abs(value)
-	while abs_value != 0:
-		pass
+	while abs_value>base:
+		result+=digit_letters[abs_value%base]
+        abs_value=abs_value//base    
 	if value < 0:
 		# TODO: Ne pas oublier d'ajouter '-' devant pour les nombres négatifs.
-		pass
-	return result
+        result+="-"
+    result=result[::-1]
+    return result
 
 
 if __name__ == "__main__":
