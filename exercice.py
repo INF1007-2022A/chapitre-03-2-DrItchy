@@ -8,7 +8,11 @@ def dissipated_power(voltage, resistance):
 def orthogonal(v1, v2):
 	# TODO: Retourner vrai si les vecteurs sont orthogonaux, faux sinon.
     scal=0
-	for i in range(len(v1)):
+    if (v1[0]==0 * v1[1]==0)+(v2[0]==0 * v2[1]==0):
+        return True
+    if len(v1)>len(v2):
+        v1,v2=v2,v1
+    for i in range(len(v1)):
         scal+=v1[i]*v2[i]
     if scal==0:
         return True
@@ -24,15 +28,15 @@ def bills(value):
 	# TODO: Calculez le nombre de billets de 20$, 10$ et 5$ et pièces de 1$ à remettre pour représenter la valeur.
 	while value != 0:
 		if value >= 20:
-			pass
+			twenties=value//20
 		elif value >= 10:
-			pass
+			tens=value//10
 		elif value >= 5:
-			pass
+			fives=value//5
 		elif value >= 1:
-			pass
+			ones=value//1
 
-	return (twenties, tens, fives, twos, ones);
+	return (twenties, tens, fives, ones);
 
 def format_base(value, base, digit_letters):
 	# Formater un nombre dans une base donné en utilisant les lettres fournies pour les chiffres<
